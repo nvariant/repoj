@@ -7,6 +7,8 @@ In the experiment 30 subjects wearing Samsung Galaxy S smartphone on the waist p
 
 The accelerometer measurements were pre-processed in the ways described more fully in the "features" portion of the Variables section of the this Code Book.
 
+There are 10299 total observatoins in the dataset (originally divided into "test" and "train" portions, but combined in this data cleaning process).
+
 Each record of the dataset contains:
 - Triaxial acceleration from the accelerometer (total acceleration) and the estimated body acceleration.
 - Triaxial Angular velocity from the gyroscope. 
@@ -32,7 +34,7 @@ laying
 These represent the activities the subjects were performing during the experiment as measurements were taken from the cell phone worn by the subjects.
 
 ##feature vector
-These varibles give the 561 measuremensts and statistical derivations of the measurements taken by the smartphone during the subjects' activities. The values are all normalized to a range of [1, 1].
+These varibles give the 561 measuremensts and statistical derivations of the measurements taken by the smartphone during the activities of the subjects. The values are all normalized to a range of [1, 1].
 
 The measurements selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
 
@@ -653,7 +655,7 @@ angle(Y,gravityMean)
 angle(Z,gravityMean)
 of
 ##Transformation of the data
-The train and test files used spaces inconsistently to separate columns of data, so the files were imported into R, the spaces changed to bars, and the data exported to text files, and reloaded to produce well-formed dataframes. 
+The train and test files used spaces inconsistently to separate columns of data, so the files were imported into R, the spaces changed to bars, and the data exported to text files, and reloaded to produce well-formed dataframes. The test dataset has 2947 observations and the train data has 7352 observations. These two sets were combined into a dataframe with 10299 observations.
 
 The activity labels ("standing, walking", etc) were loaded from "activity_labels.txt". The labels were changed to lower case and joined to the existing dataframe, and the column name "activity" added to the each of the train and test dataframes. Similarly, the subject data was added, along with the column name "subject".
 
